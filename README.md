@@ -1,21 +1,27 @@
 # RFID-Modul
-Første publisering
+RFID modul for å forsikre identifisering og sending av tidsinterval og id til server som tracker disse oversendelsene.
 
-Mission 1 - Rask registrering
-- Registrere 8 sifret ID
+## TODO:
 
-Mission 2 - Timestamp
-- Synkronisere med global klokke
-  Forslag: referansesendinger ved oppstart av RFID modul vil antageligvis kunne kalibrere klokka (CPU ticks) med global klokke
-- Registrere timestamp
-  steg 1: sende til COM
-  steg 2: sende til COM med RFID
+- [ ] Modul: Timer
+ - [ ] Ha en timer som teller ned fra t0 til 0 og sender på serial
+ - [ ] Koble mot stort display, kjøre timer på denne.
+ - [ ] Test presisjon
 
-Mission 3 - Ship and share
-- Lag array med nødvendig data, marshale (gjøre om til bit melding).
-- Send data gjennom RF til annen pc
+- [ ] Modul: Send/Recieve
+ - [ ] Etabler stabil kobling over antenne til PC
+ - [ ] send ID og tidsinterval over antenne.
+ - [ ] Sett timestamp
+ - [ ] Test pålitlighet
+ 
+- [ ] User friendliness
+ - [ ] passe på at bruker ikke kan sende for ofte.
+ - [ ] (optional) implementere komunikasjon på LCD skjerm
 
-Mission 4 - Connect til Server
-- Endre slik at data blir sendt gjennom RF til en server.
+- [ ] Sever settup
+ - [ ] Kjøre Send/Recieve på server
+ - [ ] teste avstand
 
-
+## LOG:
+- [x] Kom igang med RFID
+ - [x]  Registrere 8 sifret ID sende på COM
