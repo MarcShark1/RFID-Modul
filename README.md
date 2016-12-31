@@ -3,11 +3,6 @@ RFID modul for å forsikre identifisering og sending av tidsinterval og id til s
 
 ## TODO:
 
-- [ ] Modul: Timer
- - [ ] Ha en timer som teller ned fra t0 til 0 og sender på serial
- - [ ] Koble mot stort display, kjøre timer på denne.
- - [ ] Test presisjon
-
 - [ ] Modul: Send/Recieve
  - [ ] Etabler stabil kobling over antenne til PC
  - [ ] send ID og tidsinterval over antenne.
@@ -22,6 +17,11 @@ RFID modul for å forsikre identifisering og sending av tidsinterval og id til s
  - [ ] Kjøre Send/Recieve på server
  - [ ] teste avstand
 
-## LOG:
+## BACKLOG:
+- [x] Modul: Timer
+ - [x] Ha en timer som teller ned fra t0 til 0 og sender på serial
+ - [x] Koble mot 7 segment display, kjøre timer på denne.
+ - [ ] Test presisjon
+
 - [x] Kom igang med RFID
  - [x]  Registrere 8 sifret ID sende på COM
