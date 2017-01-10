@@ -29,7 +29,8 @@ void setup() {
   mfrc522.PCD_Init();   // Init MFRC522
   mfrc522.PCD_DumpVersionToSerial();  // Show details of PCD - MFRC522 Card Reader details
   Serial.println(F("Test Running...."));
-
+  
+  Serial1.begin(9600)
 }
 
 void countDown(int negCount, int posCount){
@@ -53,9 +54,26 @@ void countDown(int negCount, int posCount){
   lc.clearDisplay(0);
   
 }
+void dumpUID{
+  // Dump UID to Serial
+  Serial.print(F("Card UID:"));
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+    Serial.print(mfrc522.uid.uidByte[i], HEX);
+  } 
+  Serial.println();
+
+  // Dump UID to Serial1
+  Serial1.print(F("Card UID:"));
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    Serial1.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+    Serial1.print(mfrc522.uid.uidByte[i], HEX);
+  } 
+  Serial1.println();
+}
+
 
 void loop() {
-  // put your main code here, to run repeatedly:
   // Look for new cards
   // Look for new cards, and select one if present
   if ( ! mfrc522.PICC_IsNewCardPresent() || ! mfrc522.PICC_ReadCardSerial() ) {
@@ -65,13 +83,8 @@ void loop() {
 
   Serial.println(F("Detected a card!"));
 
-  // Dump UID
-  Serial.print(F("Card UID:"));
-  for (byte i = 0; i < mfrc522.uid.size; i++) {
-    Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
-    Serial.print(mfrc522.uid.uidByte[i], HEX);
-  } 
-  Serial.println();
+  dumpUID();
+
   countDown(2,5);
 
   delay(1000);
